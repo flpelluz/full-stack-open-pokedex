@@ -10,15 +10,15 @@ const mapResults = (({ results }) => results.map(({ url, name }) => ({
   url,
   name,
   id: parseInt(url.match(/\/(\d+)\//)[1])
-})))
+})));
 
 const App = () => {
-  const { data: pokemonList, error, isLoading } = useApi('https://pokeapi.co/api/v2/pokemon/?limit=50', mapResults)
+  const { data: pokemonList, error, isLoading } = useApi('https://pokeapi.co/api/v2/pokemon/?limit=50', mapResults);
   if (isLoading) {
-    return <LoadingSpinner />
+    return <LoadingSpinner />;
   }
   if (error) {
-    return <ErrorMessage error={error} />
+    return <ErrorMessage error={error} />;
   }
 
   return (
@@ -38,4 +38,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;
